@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-const Nav = ({search}, {setSearch}) => {
+const Nav = ({search, setSearch}) => {
   return (
     <nav className='Nav'>
         <form className='searchForm' onSubmit={(e)=> e.preventDefault()}>
@@ -17,8 +17,8 @@ const Nav = ({search}, {setSearch}) => {
         </form>
         <ul>
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/post">Post</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/newpost">NewPost</Link></li>
         </ul>
     </nav>
   )
