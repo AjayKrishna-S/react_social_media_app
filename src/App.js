@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from './Header'
 import Home from './Home';
 import About from './About';
-import PostPage from './PostPage';
+import PostPage from './Postpage';
 import Missing from './Missing';
 import Nav from './Nav';
 import NewPost from './NewPost'
