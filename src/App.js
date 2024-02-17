@@ -11,6 +11,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import api from "./api/post"
 import EditPost from './EditPost';
+import useWindowSize from './Hooks/useWindowSize';
 function App() {
   const [posts,setPosts] = useState([])
   const [searchResults, setSearchResults] = useState([])
@@ -20,6 +21,7 @@ function App() {
   const [postBody,setPostBody] = useState('')
   const [editBody,setEditBody] = useState('')
   const navigate = useNavigate()
+  const {width} = useWindowSize();
 
   useEffect(() => {
     const fetchPots = async () => {
@@ -99,7 +101,10 @@ function App() {
   return ( 
 
     <div className='App'>
-            <Header title = 'Soci-App'/>
+      <Header 
+        title = 'Soci-App'
+        width = {width}
+      />
       <Nav 
         search={search}
         setSearch={setSearch}
