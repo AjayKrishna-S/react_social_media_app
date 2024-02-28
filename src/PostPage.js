@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import DataContext from './context/DataContext';
-import api from './api/post';
+// import api from './api/post';
 import { useNavigate } from 'react-router-dom';
 
 const PostPage = ( ) => {
@@ -11,14 +11,14 @@ const PostPage = ( ) => {
     const post = posts.find(post => (post.id).toString() === id)
 
     const handleDelete = async (id) => {
-      try{
-        await api.delete(`posts/${id}`) ;
+      // try{
+        // await api.delete(`posts/${id}`) ;
         const postList = posts.filter(post => post.id !== id);
         setPosts(postList);
         navigate('/')
-      }catch (err){
-        console.log(`Error: ${err.massage}`);
-      }
+      // }catch (err){
+      //   console.log(`Error: ${err.massage}`);
+      // }
     }
 
   return (

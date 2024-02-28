@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import DataContext from './context/DataContext';
-import api from './api/post'
+// import api from './api/post'
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,15 +23,15 @@ const EditPost = () => {
     const handleEdit = async (id) => {
         const datetime = format(new Date(), 'MMM dd yyyy pp');
         const updatedPost = { id, title: editTitle, datetime, body: editBody};
-        try{
-          const response = await api.put(`/posts/${id}`,updatedPost);
-          setPosts(posts.map(post => post.id ===id ? {...response.data} : post));  
+        // try{
+        //   const response = await api.put(`/posts/${id}`,updatedPost);
+          setPosts(posts.map(post => post.id ===id ? {...updatedPost} : post));  
           setEditTitle('');
           setEditBody('');
           navigate('/')
-        } catch (err){
-          console.log(`Error: ${err.mssage}`);
-        }
+        // } catch (err){
+        //   console.log(`Error: ${err.mssage}`);
+        // }
       }
   return (
     <main className='NewPost'>
@@ -56,6 +56,7 @@ const EditPost = () => {
                         onChange={(e)=> setEditBody(e.target.value)}
                     />
                     <button type="submit" onClick={()=> handleEdit(post.id)}>Submit</button>
+                    <p></p>
                 </form>
             </>
         }

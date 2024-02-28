@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import DataContext from './context/DataContext';
-import api from "./api/post";
+// import api from "./api/post";
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,16 +15,16 @@ const NewPost = () => {
     const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     const datetime = format(new Date(), 'MMM dd yyyy pp');
     const newPost = { id, title: postTitle, datetime, body: postBody};
-    try{
-      const response = await api.post('/posts',newPost)
-      const allPosts = [...posts, response.data];
+    // try{
+    //   const response = await api.post('/posts',newPost);
+      const allPosts = [...posts, newPost];
       setPosts(allPosts);  
       setPostTitle('');
       setPostBody('');
       navigate('/');
-    } catch (err) {
-        console.log(`Error: ${err.massage}`);
-    }
+    // } catch (err) {
+    //     console.log(`Error: ${err.massage}`);
+    // }
   }
 
   return (

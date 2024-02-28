@@ -92,7 +92,7 @@ body {
     align-items: center;
     
 }
- .Nav li {
+ .Nav li, Nav li a{
     padding: 1rem;
  }
 
